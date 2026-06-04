@@ -48,22 +48,22 @@
   <!-- Overlay gradient -->
   <div class="fixed inset-0 pointer-events-none opacity-40" style="background: radial-gradient(circle at top, rgba(212,175,55,0.18), transparent 55%);"></div>
 
- <header class="sticky top-0 z-50 bg-black/90 backdrop-blur border-b border-brand-gold/30">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-        <a href="#" class="flex items-center">
-            <img src="logo.png" alt="LSA Logo" class="h-14 w-auto">
-        </a>
-        
-        <nav class="flex items-center gap-6 text-xs font-bold tracking-widest text-brand-white uppercase">
-            <a href="#about" class="hover:text-brand-gold transition">عن التحالف</a>
-            <a href="#services" class="hover:text-brand-gold transition">الخدمات</a>
-            <a href="#contact" class="hover:text-brand-gold transition">تواصل</a>
-            <button onclick="toggleLanguage()" class="border border-brand-gold px-4 py-1.5 rounded-full hover:bg-brand-gold hover:text-black transition">
-                EN
-            </button>
-        </nav>
-    </div>
-</header>
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-black/80 backdrop-blur border-b border-brand-gold/30">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full border border-brand-gold flex items-center justify-center">
+          <span class="text-xs font-black tracking-[0.18em] text-brand-gold">LSA</span>
+        </div>
+        <div>
+          <div class="text-sm font-semibold tracking-[0.18em] uppercase text-brand-gold" id="nav-tag">
+            تحالف استثماري
+          </div>
+          <div class="text-lg font-extrabold text-brand-white" id="nav-brand">
+            تحالف المصدر الرائد
+          </div>
+        </div>
+      </div>
 
       <nav class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wide">
         <a href="#about" class="hover:text-brand-gold transition" id="nav-about">عن التحالف</a>
