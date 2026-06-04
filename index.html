@@ -4,72 +4,530 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>تحالف المصدر الرائد | Leading Source Alliance</title>
+
+  <!-- SEO -->
+  <meta name="description" content="تحالف المصدر الرائد - قوة استثمارية تقود المشاريع العملاقة في المملكة العربية السعودية." />
+  <meta name="keywords" content="تحالف, استثمار, مشاريع كبرى, أمن سيبراني, تأسيس شركات, السعودية" />
+  <meta name="author" content="Leading Source Alliance" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
+          fontFamily: { sans: ['Cairo', 'system-ui', 'sans-serif'] },
           colors: {
-            brand: { black: '#000000', gold: '#D4AF37', white: '#FFFFFF' }
+            brand: {
+              black: '#000000',
+              charcoal: '#111111',
+              gold: '#D4AF37',
+              goldSoft: '#F5E6B8',
+              white: '#FFFFFF'
+            }
           }
         }
       }
     }
   </script>
+
   <style>
-    body { background: radial-gradient(circle at top, #1f1f1f 0, #000000 55%, #000000 100%); color: white; }
-    .gold-border { border-image: linear-gradient(90deg, #D4AF37, #F5E6B8, #D4AF37) 1; }
+    body {
+      background: radial-gradient(circle at top, #1f1f1f 0, #000000 55%, #000000 100%);
+    }
+    .gold-border {
+      border-image: linear-gradient(90deg, #D4AF37, #F5E6B8, #D4AF37) 1;
+    }
   </style>
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans text-brand-white antialiased">
 
-  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur border-b border-brand-gold/30">
+  <!-- Overlay gradient -->
+  <div class="fixed inset-0 pointer-events-none opacity-40" style="background: radial-gradient(circle at top, rgba(212,175,55,0.18), transparent 55%);"></div>
+
+ <header class="sticky top-0 z-50 bg-black/90 backdrop-blur border-b border-brand-gold/30">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <a href="#" class="flex items-center">
-            <img src="logo.png" alt="LSA Logo" class="h-16 w-auto">
+            <img src="logo.png" alt="LSA Logo" class="h-14 w-auto">
         </a>
-        <nav class="flex items-center gap-8 text-xs font-bold tracking-widest uppercase">
+        
+        <nav class="flex items-center gap-6 text-xs font-bold tracking-widest text-brand-white uppercase">
             <a href="#about" class="hover:text-brand-gold transition">عن التحالف</a>
             <a href="#services" class="hover:text-brand-gold transition">الخدمات</a>
             <a href="#contact" class="hover:text-brand-gold transition">تواصل</a>
+            <button onclick="toggleLanguage()" class="border border-brand-gold px-4 py-1.5 rounded-full hover:bg-brand-gold hover:text-black transition">
+                EN
+            </button>
         </nav>
+    </div>
+</header>
+
+      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wide">
+        <a href="#about" class="hover:text-brand-gold transition" id="nav-about">عن التحالف</a>
+        <a href="#services" class="hover:text-brand-gold transition" id="nav-services">الخدمات</a>
+        <a href="#sectors" class="hover:text-brand-gold transition" id="nav-sectors">القطاعات</a>
+        <a href="#contact" class="hover:text-brand-gold transition" id="nav-contact">تواصل</a>
+      </nav>
+
+      <button
+        id="lang-btn"
+        onclick="toggleLanguage()"
+        class="text-xs font-bold tracking-wide border border-brand-gold px-4 py-2 rounded-full hover:bg-brand-gold hover:text-brand-black transition"
+      >
+        English
+      </button>
     </div>
   </header>
 
-  <section class="py-24 px-4 text-center">
-      <h1 class="text-5xl font-black mb-6">تحالف المصدر الرائد</h1>
-      <p class="text-gray-400 max-w-2xl mx-auto mb-10">منصة القوة للمشاريع الكبرى في المملكة العربية السعودية.</p>
-      <a href="#contact" class="px-8 py-3 rounded-full bg-brand-gold text-black font-bold uppercase text-xs tracking-widest hover:bg-white transition">ابدأ شراكتك الآن</a>
-  </section>
+  <main class="relative z-10">
 
-  <section id="services" class="py-20 px-4 bg-black/50">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-        <div class="border border-brand-gold/20 p-8 rounded-lg">
-            <h3 class="font-bold text-brand-gold mb-4">الهندسة القانونية</h3>
-            <p class="text-sm text-gray-300">هياكل قانونية محكمة لضمان استقرار العقود المليارية.</p>
-        </div>
-        <div class="border border-brand-gold/20 p-8 rounded-lg">
-            <h3 class="font-bold text-brand-gold mb-4">تأسيس الشركات</h3>
-            <p class="text-sm text-gray-300">دعم تشغيلي لتأسيس الكيانات الاستثمارية بسرعة قياسية.</p>
-        </div>
-        <div class="border border-brand-gold/20 p-8 rounded-lg">
-            <h3 class="font-bold text-brand-gold mb-4">الأمن السيبراني</h3>
-            <p class="text-sm text-gray-300">حماية البنية الرقمية للمشاريع الوطنية الكبرى.</p>
-        </div>
-    </div>
-  </section>
+    <!-- Hero -->
+    <section class="pt-20 pb-24 px-4">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-2 border border-brand-gold/40 rounded-full px-4 py-1.5 bg-black/60">
+            <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+            <span class="text-[11px] font-semibold tracking-[0.22em] uppercase text-brand-gold" id="hero-tag">
+              قوة استثمارية تقود المشاريع العملاقة
+            </span>
+          </div>
 
-  <section id="contact" class="py-20 px-4">
-    <div class="max-w-2xl mx-auto border border-brand-gold/30 p-10 rounded-xl bg-black/80">
-        <h2 class="text-2xl font-bold mb-6 text-brand-gold">تواصل مع التحالف</h2>
-        <form class="space-y-4">
-            <input type="text" placeholder="الاسم الكريم" class="w-full bg-black border border-gray-700 p-3 rounded text-sm">
-            <input type="email" placeholder="البريد الإلكتروني" class="w-full bg-black border border-gray-700 p-3 rounded text-sm">
-            <textarea placeholder="وصف المشروع" class="w-full bg-black border border-gray-700 p-3 rounded text-sm h-32"></textarea>
-            <button class="w-full bg-brand-gold text-black font-bold py-3 rounded hover:bg-white transition">إرسال الطلب</button>
+          <h1 class="text-4xl md:text-5xl font-black leading-tight text-brand-white" id="hero-title">
+            تحالف المصدر الرائد<br />
+            منصة القوة للمشاريع الكبرى
+          </h1>
+
+          <p class="text-sm md:text-base text-gray-300 leading-relaxed max-w-xl" id="hero-desc">
+            تحالف سعودي يضم كيانات متخصصة في الاستثمار، البنية التحتية، الأمن السيبراني، والتقنية. نقود التحالفات التجارية،
+            نؤسس الكيانات الكبرى، ونفتح أبواب الصفقات المليارية بثقة وانضباط.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4">
+            <a
+              href="#contact"
+              id="hero-btn"
+              class="inline-flex items-center justify-center px-8 py-3 rounded-full bg-brand-gold text-brand-black text-xs font-extrabold tracking-[0.18em] uppercase hover:bg-brand-gold/90 transition shadow-[0_0_25px_rgba(212,175,55,0.45)]"
+            >
+              ابدأ شراكتك الآن
+            </a>
+            <span class="text-[11px] text-gray-400" id="hero-sub">
+              موجه للمشاريع التي تتجاوز قيمتها مئات الملايين
+            </span>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -top-10 -left-6 w-32 h-32 rounded-full border border-brand-gold/40"></div>
+          <div class="absolute -bottom-10 -right-6 w-24 h-24 rounded-full border border-brand-gold/20"></div>
+
+          <div class="relative bg-gradient-to-br from-brand-charcoal to-black border gold-border rounded-xl p-[1px] shadow-2xl">
+            <div class="bg-black/90 rounded-xl p-6 space-y-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <div class="text-xs text-gray-400" id="hero-card-title">
+                    مؤشر التحالفات الاستراتيجية
+                  </div>
+                  <div class="text-2xl font-extrabold text-brand-gold" id="hero-card-number">
+                    + 12.4%
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="text-[11px] text-gray-400" id="hero-card-sub">
+                    نمو متوسط في قيمة الصفقات
+                  </div>
+                  <div class="text-xs text-gray-500" id="hero-card-period">
+                    آخر 24 شهرًا
+                  </div>
+                </div>
+              </div>
+
+              <div class="h-28 bg-gradient-to-t from-brand-charcoal/60 to-black rounded-lg overflow-hidden relative">
+                <div class="absolute inset-0 opacity-60"
+                     style="background: radial-gradient(circle at 10% 90%, rgba(212,175,55,0.4), transparent 55%), radial-gradient(circle at 80% 10%, rgba(212,175,55,0.3), transparent 55%);">
+                </div>
+                <div class="absolute inset-x-4 bottom-4 flex justify-between text-[10px] text-gray-500">
+                  <span>تحالفات</span>
+                  <span>مناقصات</span>
+                  <span>استحواذات</span>
+                  <span>شراكات</span>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-3 gap-3 text-[11px]">
+                <div class="border border-brand-gold/30 rounded-lg px-3 py-2 bg-black/60">
+                  <div class="text-gray-400" id="hero-metric-1-title">قيمة الصفقات</div>
+                  <div class="text-brand-gold font-bold" id="hero-metric-1-value">+ مليار ريال</div>
+                </div>
+                <div class="border border-brand-gold/20 rounded-lg px-3 py-2 bg-black/60">
+                  <div class="text-gray-400" id="hero-metric-2-title">نسبة الفوز</div>
+                  <div class="text-brand-gold font-bold" id="hero-metric-2-value">مرتفعة</div>
+                </div>
+                <div class="border border-brand-gold/10 rounded-lg px-3 py-2 bg-black/60">
+                  <div class="text-gray-400" id="hero-metric-3-title">قطاعات</div>
+                  <div class="text-brand-gold font-bold" id="hero-metric-3-value">متعددة</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-16 px-4 border-t border-brand-gold/20 bg-black/70">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="text-xl font-extrabold text-brand-gold mb-3" id="about-title">
+            عن تحالف المصدر الرائد
+          </h2>
+          <p class="text-sm text-gray-300 leading-relaxed mb-4" id="about-desc-1">
+            تحالف المصدر الرائد هو منصة قوة تجمع كيانات متخصصة في الاستثمار، البنية التحتية، الأمن السيبراني، والتقنية،
+            بهدف قيادة مشاريع كبرى وتحالفات استراتيجية ذات أثر اقتصادي عميق.
+          </p>
+          <p class="text-sm text-gray-300 leading-relaxed" id="about-desc-2">
+            نعمل وفق منهجية منضبطة، قانونيًا وتجاريًا وتشغيليًا، لضمان جاهزية التحالفات للفوز بالمناقصات العملاقة،
+            وإدارة المخاطر، وتعظيم العائد على الشركاء.
+          </p>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-4 text-xs">
+          <div class="border border-brand-gold/30 rounded-lg p-4 bg-black/70">
+            <div class="text-[10px] text-gray-400 mb-1" id="about-badge-1-title">نطاق العمل</div>
+            <div class="text-brand-gold font-bold" id="about-badge-1-value">مشاريع كبرى</div>
+          </div>
+          <div class="border border-brand-gold/20 rounded-lg p-4 bg-black/70">
+            <div class="text-[10px] text-gray-400 mb-1" id="about-badge-2-title">الهوية</div>
+            <div class="text-brand-gold font-bold" id="about-badge-2-value">تحالف استثماري</div>
+          </div>
+          <div class="border border-brand-gold/10 rounded-lg p-4 bg-black/70">
+            <div class="text-[10px] text-gray-400 mb-1" id="about-badge-3-title">الموقع</div>
+            <div class="text-brand-gold font-bold" id="about-badge-3-value">المملكة العربية السعودية</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-18 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-xl font-extrabold text-brand-gold" id="services-title">
+            مجالات العمل الرئيسية
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-6 text-sm">
+          <div class="border border-brand-gold/25 rounded-lg p-5 bg-black/70">
+            <div class="text-2xl mb-3">⚖️</div>
+            <h3 class="font-bold mb-2" id="srv-1-title">الهندسة القانونية والتحالفات</h3>
+            <p class="text-gray-300 text-xs leading-relaxed" id="srv-1-desc">
+              بناء هياكل قانونية محكمة للتحالفات العملاقة، وضمان امتثال استراتيجي يرفع فرص الفوز بالمناقصات الكبرى.
+            </p>
+          </div>
+
+          <div class="border border-brand-gold/25 rounded-lg p-5 bg-black/70">
+            <div class="text-2xl mb-3">🏢</div>
+            <h3 class="font-bold mb-2" id="srv-2-title">تأسيس الكيانات الاستثمارية</h3>
+            <p class="text-gray-300 text-xs leading-relaxed" id="srv-2-desc">
+              تأسيس شركات محلية ودولية، إدارة التراخيص، وتفعيل العمليات التشغيلية بسرعة واحترافية.
+            </p>
+          </div>
+
+          <div class="border border-brand-gold/25 rounded-lg p-5 bg-black/70">
+            <div class="text-2xl mb-3">🤝</div>
+            <h3 class="font-bold mb-2" id="srv-3-title">الهندسة التجارية والتحالفات</h3>
+            <p class="text-gray-300 text-xs leading-relaxed" id="srv-3-desc">
+              بناء تحالفات قوية، إدارة مفاوضات عالية القيمة، وقيادة صفقات تتجاوز مئات الملايين.
+            </p>
+          </div>
+
+          <div class="border border-brand-gold/25 rounded-lg p-5 bg-black/70">
+            <div class="text-2xl mb-3">🛡️</div>
+            <h3 class="font-bold mb-2" id="srv-4-title">الأمن السيبراني والهجمات الاختبارية</h3>
+            <p class="text-gray-300 text-xs leading-relaxed" id="srv-4-desc">
+              اختبارات اختراق، تقييم مخاطر، وحماية البنية الرقمية لضمان أعلى مستويات الأمان في المشاريع الكبرى.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sectors -->
+    <section id="sectors" class="py-16 px-4 bg-black/80 border-t border-brand-gold/20">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-xl font-extrabold text-brand-gold mb-6" id="sectors-title">
+          القطاعات المستهدفة
+        </h2>
+        <div class="grid sm:grid-cols-3 gap-4 text-xs">
+          <div class="border border-brand-gold/25 rounded-lg p-4 bg-black/70" id="sector-1">
+            مشاريع البنية التحتية الكبرى
+          </div>
+          <div class="border border-brand-gold/25 rounded-lg p-4 bg-black/70" id="sector-2">
+            الأمن السيبراني والتحول الرقمي
+          </div>
+          <div class="border border-brand-gold/25 rounded-lg p-4 bg-black/70" id="sector-3">
+            الطاقة، اللوجستيات، والخدمات المتقدمة
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-18 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-xl font-extrabold text-brand-gold mb-4" id="contact-title">
+          تواصل مع تحالف المصدر الرائد
+        </h2>
+        <p class="text-sm text-gray-300 mb-6" id="contact-desc">
+          مخصص للجهات الاستثمارية، التحالفات، والمشاريع الكبرى التي تبحث عن شريك استراتيجي يقود التنفيذ بثقة وقوة.
+        </p>
+
+        <form class="grid md:grid-cols-2 gap-4 text-xs">
+          <div class="md:col-span-1">
+            <label class="block mb-1 text-gray-300" id="contact-name-label">الاسم / الجهة</label>
+            <input type="text" class="w-full bg-black/70 border border-brand-gold/30 rounded-md px-3 py-2 text-xs focus:outline-none focus:border-brand-gold" />
+          </div>
+          <div class="md:col-span-1">
+            <label class="block mb-1 text-gray-300" id="contact-email-label">البريد الإلكتروني</label>
+            <input type="email" class="w-full bg-black/70 border border-brand-gold/30 rounded-md px-3 py-2 text-xs focus:outline-none focus:border-brand-gold" />
+          </div>
+          <div class="md:col-span-2">
+            <label class="block mb-1 text-gray-300" id="contact-message-label">وصف مختصر للمشروع أو التحالف</label>
+            <textarea rows="4" class="w-full bg-black/70 border border-brand-gold/30 rounded-md px-3 py-2 text-xs focus:outline-none focus:border-brand-gold"></textarea>
+          </div>
+          <div class="md:col-span-2 flex justify-between items-center mt-2">
+            <button
+              type="submit"
+              class="px-8 py-2 rounded-full bg-brand-gold text-brand-black text-xs font-extrabold tracking-[0.18em] uppercase hover:bg-brand-gold/90 transition"
+              id="contact-btn"
+            >
+              إرسال الطلب
+            </button>
+            <span class="text-[10px] text-gray-500" id="contact-note">
+              يمكن ربط هذا النموذج لاحقًا بنظام بريد أو Backend حسب الحاجة.
+            </span>
+          </div>
         </form>
-    </div>
-  </section>
+      </div>
+    </section>
 
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-brand-gold/20 bg-black/90 py-4 px-4">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-[11px] text-gray-500">
+      <div id="footer-copy">
+        © تحالف المصدر الرائد – Leading Source Alliance. جميع الحقوق محفوظة.
+      </div>
+      <div class="flex gap-4">
+        <span id="footer-location">المملكة العربية السعودية</span>
+        <span class="hidden sm:inline">|</span>
+        <span id="footer-tagline">تحالف استثماري للمشاريع الكبرى.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Language Toggle Script -->
+  <script>
+    let currentLang = 'ar';
+
+    const content = {
+      ar: {
+        dir: 'rtl',
+        navTag: 'تحالف استثماري',
+        navBrand: 'تحالف المصدر الرائد',
+        navAbout: 'عن التحالف',
+        navServices: 'الخدمات',
+        navSectors: 'القطاعات',
+        navContact: 'تواصل',
+        heroTag: 'قوة استثمارية تقود المشاريع العملاقة',
+        heroTitle: 'تحالف المصدر الرائد\nمنصة القوة للمشاريع الكبرى',
+        heroDesc: 'تحالف سعودي يضم كيانات متخصصة في الاستثمار، البنية التحتية، الأمن السيبراني، والتقنية. نقود التحالفات التجارية، نؤسس الكيانات الكبرى، ونفتح أبواب الصفقات المليارية بثقة وانضباط.',
+        heroBtn: 'ابدأ شراكتك الآن',
+        heroSub: 'موجه للمشاريع التي تتجاوز قيمتها مئات الملايين',
+        heroCardTitle: 'مؤشر التحالفات الاستراتيجية',
+        heroCardNumber: '+ 12.4%',
+        heroCardSub: 'نمو متوسط في قيمة الصفقات',
+        heroCardPeriod: 'آخر 24 شهرًا',
+        heroMetric1Title: 'قيمة الصفقات',
+        heroMetric1Value: '+ مليار ريال',
+        heroMetric2Title: 'نسبة الفوز',
+        heroMetric2Value: 'مرتفعة',
+        heroMetric3Title: 'قطاعات',
+        heroMetric3Value: 'متعددة',
+        aboutTitle: 'عن تحالف المصدر الرائد',
+        aboutDesc1: 'تحالف المصدر الرائد هو منصة قوة تجمع كيانات متخصصة في الاستثمار، البنية التحتية، الأمن السيبراني، والتقنية، بهدف قيادة مشاريع كبرى وتحالفات استراتيجية ذات أثر اقتصادي عميق.',
+        aboutDesc2: 'نعمل وفق منهجية منضبطة، قانونيًا وتجاريًا وتشغيليًا، لضمان جاهزية التحالفات للفوز بالمناقصات العملاقة، وإدارة المخاطر، وتعظيم العائد على الشركاء.',
+        aboutBadge1Title: 'نطاق العمل',
+        aboutBadge1Value: 'مشاريع كبرى',
+        aboutBadge2Title: 'الهوية',
+        aboutBadge2Value: 'تحالف استثماري',
+        aboutBadge3Title: 'الموقع',
+        aboutBadge3Value: 'المملكة العربية السعودية',
+        servicesTitle: 'مجالات العمل الرئيسية',
+        srv1Title: 'الهندسة القانونية والتحالفات',
+        srv1Desc: 'بناء هياكل قانونية محكمة للتحالفات العملاقة، وضمان امتثال استراتيجي يرفع فرص الفوز بالمناقصات الكبرى.',
+        srv2Title: 'تأسيس الكيانات الاستثمارية',
+        srv2Desc: 'تأسيس شركات محلية ودولية، إدارة التراخيص، وتفعيل العمليات التشغيلية بسرعة واحترافية.',
+        srv3Title: 'الهندسة التجارية والتحالفات',
+        srv3Desc: 'بناء تحالفات قوية، إدارة مفاوضات عالية القيمة، وقيادة صفقات تتجاوز مئات الملايين.',
+        srv4Title: 'الأمن السيبراني والهجمات الاختبارية',
+        srv4Desc: 'اختبارات اختراق، تقييم مخاطر، وحماية البنية الرقمية لضمان أعلى مستويات الأمان في المشاريع الكبرى.',
+        sectorsTitle: 'القطاعات المستهدفة',
+        sector1: 'مشاريع البنية التحتية الكبرى',
+        sector2: 'الأمن السيبراني والتحول الرقمي',
+        sector3: 'الطاقة، اللوجستيات، والخدمات المتقدمة',
+        contactTitle: 'تواصل مع تحالف المصدر الرائد',
+        contactDesc: 'مخصص للجهات الاستثمارية، التحالفات، والمشاريع الكبرى التي تبحث عن شريك استراتيجي يقود التنفيذ بثقة وقوة.',
+        contactNameLabel: 'الاسم / الجهة',
+        contactEmailLabel: 'البريد الإلكتروني',
+        contactMessageLabel: 'وصف مختصر للمشروع أو التحالف',
+        contactBtn: 'إرسال الطلب',
+        contactNote: 'يمكن ربط هذا النموذج لاحقًا بنظام بريد أو Backend حسب الحاجة.',
+        footerCopy: '© تحالف المصدر الرائد – Leading Source Alliance. جميع الحقوق محفوظة.',
+        footerLocation: 'المملكة العربية السعودية',
+        footerTagline: 'تحالف استثماري للمشاريع الكبرى.',
+        langBtn: 'English'
+      },
+      en: {
+        dir: 'ltr',
+        navTag: 'Investment Alliance',
+        navBrand: 'Leading Source Alliance',
+        navAbout: 'About',
+        navServices: 'Services',
+        navSectors: 'Sectors',
+        navContact: 'Contact',
+        heroTag: 'Investment power for mega projects',
+        heroTitle: 'Leading Source Alliance\nA power platform for major projects',
+        heroDesc: 'A Saudi alliance bringing together entities specialized in investment, infrastructure, cybersecurity, and technology. We lead commercial alliances, establish major entities, and open the doors to billion-scale deals with discipline and confidence.',
+        heroBtn: 'Start your partnership',
+        heroSub: 'Designed for projects valued in the hundreds of millions and above',
+        heroCardTitle: 'Strategic Alliances Index',
+        heroCardNumber: '+ 12.4%',
+        heroCardSub: 'Average growth in deal value',
+        heroCardPeriod: 'Last 24 months',
+        heroMetric1Title: 'Deal volume',
+        heroMetric1Value: '+ 1B SAR',
+        heroMetric2Title: 'Win ratio',
+        heroMetric2Value: 'High',
+        heroMetric3Title: 'Sectors',
+        heroMetric3Value: 'Multiple',
+        aboutTitle: 'About Leading Source Alliance',
+        aboutDesc1: 'Leading Source Alliance is a power platform uniting entities specialized in investment, infrastructure, cybersecurity, and technology to lead major projects and strategic alliances with deep economic impact.',
+        aboutDesc2: 'We operate with disciplined legal, commercial, and operational methodologies to ensure alliances are ready to win mega tenders, manage risk, and maximize partner returns.',
+        aboutBadge1Title: 'Scope',
+        aboutBadge1Value: 'Major projects',
+        aboutBadge2Title: 'Identity',
+        aboutBadge2Value: 'Investment alliance',
+        aboutBadge3Title: 'Location',
+        aboutBadge3Value: 'Kingdom of Saudi Arabia',
+        servicesTitle: 'Core domains',
+        srv1Title: 'Legal engineering & alliances',
+        srv1Desc: 'Designing robust legal structures for large-scale alliances and ensuring strategic compliance to increase tender win probability.',
+        srv2Title: 'Establishing investment entities',
+        srv2Desc: 'Establishing local and international companies, managing licenses, and activating operations with speed and professionalism.',
+        srv3Title: 'Commercial engineering & alliances',
+        srv3Desc: 'Building strong alliances, managing high-value negotiations, and leading deals exceeding hundreds of millions.',
+        srv4Title: 'Cybersecurity & controlled attacks',
+        srv4Desc: 'Penetration testing, risk assessment, and digital infrastructure protection to ensure maximum security for major projects.',
+        sectorsTitle: 'Target sectors',
+        sector1: 'Large-scale infrastructure projects',
+        sector2: 'Cybersecurity and digital transformation',
+        sector3: 'Energy, logistics, and advanced services',
+        contactTitle: 'Contact Leading Source Alliance',
+        contactDesc: 'Dedicated to investment entities, alliances, and major projects seeking a strategic partner to lead execution with strength and discipline.',
+        contactNameLabel: 'Name / Entity',
+        contactEmailLabel: 'Email',
+        contactMessageLabel: 'Brief description of the project or alliance',
+        contactBtn: 'Submit request',
+        contactNote: 'This form can later be connected to an email system or backend as needed.',
+        footerCopy: '© Leading Source Alliance. All rights reserved.',
+        footerLocation: 'Kingdom of Saudi Arabia',
+        footerTagline: 'Investment alliance for major projects.',
+        langBtn: 'العربية'
+      }
+    };
+
+    function applyLang(lang) {
+      const c = content[lang];
+      document.documentElement.lang = lang;
+      document.documentElement.dir = c.dir;
+
+      const map = {
+        'nav-tag': 'navTag',
+        'nav-brand': 'navBrand',
+        'nav-about': 'navAbout',
+        'nav-services': 'navServices',
+        'nav-sectors': 'navSectors',
+        'nav-contact': 'navContact',
+        'hero-tag': 'heroTag',
+        'hero-title': 'heroTitle',
+        'hero-desc': 'heroDesc',
+        'hero-btn': 'heroBtn',
+        'hero-sub': 'heroSub',
+        'hero-card-title': 'heroCardTitle',
+        'hero-card-number': 'heroCardNumber',
+        'hero-card-sub': 'heroCardSub',
+        'hero-card-period': 'heroCardPeriod',
+        'hero-metric-1-title': 'heroMetric1Title',
+        'hero-metric-1-value': 'heroMetric1Value',
+        'hero-metric-2-title': 'heroMetric2Title',
+        'hero-metric-2-value': 'heroMetric2Value',
+        'hero-metric-3-title': 'heroMetric3Title',
+        'hero-metric-3-value': 'heroMetric3Value',
+        'about-title': 'aboutTitle',
+        'about-desc-1': 'aboutDesc1',
+        'about-desc-2': 'aboutDesc2',
+        'about-badge-1-title': 'aboutBadge1Title',
+        'about-badge-1-value': 'aboutBadge1Value',
+        'about-badge-2-title': 'aboutBadge2Title',
+        'about-badge-2-value': 'aboutBadge2Value',
+        'about-badge-3-title': 'aboutBadge3Title',
+        'about-badge-3-value': 'aboutBadge3Value',
+        'services-title': 'servicesTitle',
+        'srv-1-title': 'srv1Title',
+        'srv-1-desc': 'srv1Desc',
+        'srv-2-title': 'srv2Title',
+        'srv-2-desc': 'srv2Desc',
+        'srv-3-title': 'srv3Title',
+        'srv-3-desc': 'srv3Desc',
+        'srv-4-title': 'srv4Title',
+        'srv-4-desc': 'srv4Desc',
+        'sectors-title': 'sectorsTitle',
+        'sector-1': 'sector1',
+        'sector-2': 'sector2',
+        'sector-3': 'sector3',
+        'contact-title': 'contactTitle',
+        'contact-desc': 'contactDesc',
+        'contact-name-label': 'contactNameLabel',
+        'contact-email-label': 'contactEmailLabel',
+        'contact-message-label': 'contactMessageLabel',
+        'contact-btn': 'contactBtn',
+        'contact-note': 'contactNote',
+        'footer-copy': 'footerCopy',
+        'footer-location': 'footerLocation',
+        'footer-tagline': 'footerTagline',
+        'lang-btn': 'langBtn'
+      };
+
+      Object.keys(map).forEach(id => {
+        const el = document.getElementById(id);
+        if (el && c[map[id]] !== undefined) {
+          el.textContent = c[map[id]];
+        }
+      });
+    }
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'ar' ? 'en' : 'ar';
+      applyLang(currentLang);
+    }
+
+    // Initialize Arabic
+    applyLang('ar');
+  </script>
 </body>
 </html>
