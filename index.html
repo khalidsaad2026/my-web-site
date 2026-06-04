@@ -1,26 +1,82 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <title>موقع التحالف</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f4f4f4; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
-        h1 { color: #2c3e50; }
-        ul { list-style: none; padding: 0; }
-        li { background: #eee; margin: 10px 0; padding: 10px; border-radius: 5px; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المصدر الرائد | Leading Source Alliance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Rubik', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            dark: '#0B192C',
+                            gold: '#C5A059',
+                            emerald: '#1E5128',
+                            light: '#F8FAFC'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <div class="container">
-        <h1>مرحباً بكم في موقع التحالف</h1>
-        <p>نحن نقدم حلولاً احترافية وخدمات متميزة.</p>
-        <h2>أعمالنا:</h2>
-        <ul>
-            <li>تقديم استشارات تقنية متخصصة</li>
-            <li>تطوير وبرمجة المواقع والأنظمة</li>
-            <li>حلول السحابة والتحول الرقمي</li>
-        </ul>
-    </div>
+<body class="bg-brand-light font-sans text-slate-800 transition-colors duration-500">
+
+    <!-- الهيدر الفاخر -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <span class="text-2xl font-bold tracking-tighter text-brand-dark" id="nav-brand">المصدر الرائد</span>
+            <nav class="hidden md:flex space-x-10 space-x-reverse text-sm font-medium text-slate-600">
+                <a href="#about" class="hover:text-brand-dark transition">عن التحالف</a>
+                <a href="#services" class="hover:text-brand-dark transition">خدماتنا</a>
+                <a href="#contact" class="hover:text-brand-dark transition">تواصل معنا</a>
+            </nav>
+            <button onclick="toggleLanguage()" class="border border-brand-dark px-6 py-2 rounded hover:bg-brand-dark hover:text-white transition text-xs font-bold" id="lang-btn">English</button>
+        </div>
+    </header>
+
+    <!-- قسم البطل - بتأثير بصري فخم -->
+    <section class="py-32 px-6 text-center bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <span class="text-brand-gold text-sm font-bold uppercase tracking-[0.2em] mb-6 block" id="hero-tag">بوابتك للتميز الاستراتيجي</span>
+            <h1 class="text-5xl md:text-7xl font-bold text-brand-dark mb-8 leading-tight" id="hero-title">تحالف المصدر الرائد للمشاريع الكبرى</h1>
+            <p class="text-lg md:text-xl text-slate-500 mb-12 leading-relaxed max-w-2xl mx-auto" id="hero-desc">
+                شريكك الاستراتيجي في المملكة العربية السعودية، حيث نذلل العقبات القانونية واللوجستية لنفتح لك آفاق الصفقات المليارية.
+            </p>
+            <a href="#contact" class="bg-brand-dark text-white font-bold px-10 py-4 rounded hover:bg-brand-emerald transition shadow-xl" id="hero-btn">ابدأ رحلتك الاستثمارية</a>
+        </div>
+    </section>
+
+    <!-- قسم الركائز - بتصميم Cards مريح -->
+    <section id="services" class="py-24 px-6 bg-slate-50">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="p-10 bg-white shadow-sm border border-slate-100 rounded-sm">
+                    <div class="text-brand-gold text-4xl mb-6">⚖️</div>
+                    <h3 class="text-2xl font-bold mb-4" id="srv-1-title">الاستشارات القانونية</h3>
+                    <p class="text-slate-600 leading-relaxed" id="srv-1-desc">صياغة دستورية لشركاتكم تضمن الامتثال التنظيمي بنسبة 100%.</p>
+                </div>
+                <div class="p-10 bg-white shadow-sm border border-slate-100 rounded-sm">
+                    <div class="text-brand-gold text-4xl mb-6">🏢</div>
+                    <h3 class="text-2xl font-bold mb-4" id="srv-2-title">تأسيس الشركات</h3>
+                    <p class="text-slate-600 leading-relaxed" id="srv-2-desc">دعم لوجستي وتأسيس رقمي سريع عبر منصات وزارة الاستثمار.</p>
+                </div>
+                <div class="p-10 bg-white shadow-sm border border-slate-100 rounded-sm">
+                    <div class="text-brand-gold text-4xl mb-6">🤝</div>
+                    <h3 class="text-2xl font-bold mb-4" id="srv-3-title">التحالفات التجارية</h3>
+                    <p class="text-slate-600 leading-relaxed" id="srv-3-desc">هندسة شراكات استراتيجية لتعظيم فرص الفوز بالمناقصات المليارية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- سكريبت تبديل اللغة (كما في الكود السابق) -->
+    <script>
+        // دالة التبديل هنا (سيتم إدراجها بنفس منطق الكود السابق)...
+    </script>
 </body>
 </html>
