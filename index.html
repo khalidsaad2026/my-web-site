@@ -48,22 +48,30 @@
   <!-- Overlay gradient -->
   <div class="fixed inset-0 pointer-events-none opacity-40" style="background: radial-gradient(circle at top, rgba(212,175,55,0.18), transparent 55%);"></div>
 
-  <!-- Header -->
-  <header class="sticky top-0 z-40 bg-black/80 backdrop-blur border-b border-brand-gold/30">
+ <!-- الهيدر الفاخر مع الشعار -->
+<header class="sticky top-0 z-40 bg-black/80 backdrop-blur border-b border-brand-gold/30">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-full border border-brand-gold flex items-center justify-center">
-          <span class="text-xs font-black tracking-[0.18em] text-brand-gold">LSA</span>
-        </div>
-        <div>
-          <div class="text-sm font-semibold tracking-[0.18em] uppercase text-brand-gold" id="nav-tag">
-            تحالف استثماري
-          </div>
-          <div class="text-lg font-extrabold text-brand-white" id="nav-brand">
-            تحالف المصدر الرائد
-          </div>
-        </div>
-      </div>
+        <!-- هنا يتم عرض الشعار بدلاً من النص -->
+        <a href="#" class="flex items-center gap-3">
+            <img src="logo.png" alt="Leading Source Alliance" class="h-16 w-auto transition-transform hover:scale-105">
+        </a>
+        
+        <nav class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wide text-brand-white">
+            <a href="#about" class="hover:text-brand-gold transition" id="nav-about">عن التحالف</a>
+            <a href="#services" class="hover:text-brand-gold transition" id="nav-services">الخدمات</a>
+            <a href="#sectors" class="hover:text-brand-gold transition" id="nav-sectors">القطاعات</a>
+            <a href="#contact" class="hover:text-brand-gold transition" id="nav-contact">تواصل</a>
+        </nav>
+
+        <button
+            id="lang-btn"
+            onclick="toggleLanguage()"
+            class="text-xs font-bold tracking-wide border border-brand-gold px-4 py-2 rounded-full hover:bg-brand-gold hover:text-brand-black transition"
+        >
+            English
+        </button>
+    </div>
+</header>
 
       <nav class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wide">
         <a href="#about" class="hover:text-brand-gold transition" id="nav-about">عن التحالف</a>
