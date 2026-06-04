@@ -4,55 +4,72 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>تحالف المصدر الرائد | Leading Source Alliance</title>
-  <meta name="description" content="تحالف المصدر الرائد - قوة استثمارية تقود المشاريع العملاقة في المملكة العربية السعودية." />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { sans: ['Cairo', 'system-ui', 'sans-serif'] },
           colors: {
-            brand: { black: '#000000', charcoal: '#111111', gold: '#D4AF37', goldSoft: '#F5E6B8', white: '#FFFFFF' }
+            brand: { black: '#000000', gold: '#D4AF37', white: '#FFFFFF' }
           }
         }
       }
     }
   </script>
   <style>
-    body { background: radial-gradient(circle at top, #1f1f1f 0, #000000 55%, #000000 100%); }
+    body { background: radial-gradient(circle at top, #1f1f1f 0, #000000 55%, #000000 100%); color: white; }
     .gold-border { border-image: linear-gradient(90deg, #D4AF37, #F5E6B8, #D4AF37) 1; }
   </style>
 </head>
-<body class="font-sans text-brand-white antialiased">
+<body class="font-sans antialiased">
 
   <header class="sticky top-0 z-50 bg-black/90 backdrop-blur border-b border-brand-gold/30">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#" class="flex items-center">
-        <img src="logo.png" alt="LSA Logo" class="h-14 w-auto">
-      </a>
-      
-      <nav class="flex items-center gap-6 text-xs font-bold tracking-widest text-brand-white uppercase">
-        <a href="#about" class="hover:text-brand-gold transition">عن التحالف</a>
-        <a href="#services" class="hover:text-brand-gold transition">الخدمات</a>
-        <a href="#contact" class="hover:text-brand-gold transition">تواصل</a>
-        <button onclick="toggleLanguage()" class="border border-brand-gold px-4 py-1.5 rounded-full hover:bg-brand-gold hover:text-black transition">
-          EN
-        </button>
-      </nav>
+        <a href="#" class="flex items-center">
+            <img src="logo.png" alt="LSA Logo" class="h-16 w-auto">
+        </a>
+        <nav class="flex items-center gap-8 text-xs font-bold tracking-widest uppercase">
+            <a href="#about" class="hover:text-brand-gold transition">عن التحالف</a>
+            <a href="#services" class="hover:text-brand-gold transition">الخدمات</a>
+            <a href="#contact" class="hover:text-brand-gold transition">تواصل</a>
+        </nav>
     </div>
   </header>
 
-  <main class="relative z-10">
-    <section class="pt-20 pb-24 px-4 text-center">
-       <h1 class="text-4xl md:text-5xl font-black text-brand-white mb-6">تحالف المصدر الرائد</h1>
-       <p class="text-gray-300 max-w-2xl mx-auto">منصة القوة للمشاريع الكبرى في المملكة العربية السعودية.</p>
-    </section>
-    
-    </main>
+  <section class="py-24 px-4 text-center">
+      <h1 class="text-5xl font-black mb-6">تحالف المصدر الرائد</h1>
+      <p class="text-gray-400 max-w-2xl mx-auto mb-10">منصة القوة للمشاريع الكبرى في المملكة العربية السعودية.</p>
+      <a href="#contact" class="px-8 py-3 rounded-full bg-brand-gold text-black font-bold uppercase text-xs tracking-widest hover:bg-white transition">ابدأ شراكتك الآن</a>
+  </section>
 
-  <script>
-    // حافظ على دالة التبديل (toggleLanguage) الموجودة عندك في نهاية الملف
-  </script>
+  <section id="services" class="py-20 px-4 bg-black/50">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+        <div class="border border-brand-gold/20 p-8 rounded-lg">
+            <h3 class="font-bold text-brand-gold mb-4">الهندسة القانونية</h3>
+            <p class="text-sm text-gray-300">هياكل قانونية محكمة لضمان استقرار العقود المليارية.</p>
+        </div>
+        <div class="border border-brand-gold/20 p-8 rounded-lg">
+            <h3 class="font-bold text-brand-gold mb-4">تأسيس الشركات</h3>
+            <p class="text-sm text-gray-300">دعم تشغيلي لتأسيس الكيانات الاستثمارية بسرعة قياسية.</p>
+        </div>
+        <div class="border border-brand-gold/20 p-8 rounded-lg">
+            <h3 class="font-bold text-brand-gold mb-4">الأمن السيبراني</h3>
+            <p class="text-sm text-gray-300">حماية البنية الرقمية للمشاريع الوطنية الكبرى.</p>
+        </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-20 px-4">
+    <div class="max-w-2xl mx-auto border border-brand-gold/30 p-10 rounded-xl bg-black/80">
+        <h2 class="text-2xl font-bold mb-6 text-brand-gold">تواصل مع التحالف</h2>
+        <form class="space-y-4">
+            <input type="text" placeholder="الاسم الكريم" class="w-full bg-black border border-gray-700 p-3 rounded text-sm">
+            <input type="email" placeholder="البريد الإلكتروني" class="w-full bg-black border border-gray-700 p-3 rounded text-sm">
+            <textarea placeholder="وصف المشروع" class="w-full bg-black border border-gray-700 p-3 rounded text-sm h-32"></textarea>
+            <button class="w-full bg-brand-gold text-black font-bold py-3 rounded hover:bg-white transition">إرسال الطلب</button>
+        </form>
+    </div>
+  </section>
+
 </body>
 </html>
